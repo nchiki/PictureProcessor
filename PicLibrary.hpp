@@ -1,13 +1,14 @@
 #ifndef PICLIB_H
 #define PICLIB_H
 
+#include <unordered_map>
 #include "Picture.hpp"
 #include "Utils.hpp"
 
 class PicLibrary {
 
   private:
-  // TODO: define internal picture storage 
+    unordered_map<std::string, Picture> loadedPictures;
 
   public:
   // defaiult constructor/deconstructor
@@ -20,8 +21,10 @@ class PicLibrary {
   void unloadpicture(string filename);
   void savepicture(string filename, string path);
   void display(string filename);
-  
-  // picture transformation routines
+  inline bool isJPG(string const &filename, string const &ending);
+
+
+    // picture transformation routines
   void invert(string filename);
   void grayscale(string filename);
   void rotate(int angle, string filename);

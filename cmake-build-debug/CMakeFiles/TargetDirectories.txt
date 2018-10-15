@@ -1,0 +1,3 @@
+/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir
