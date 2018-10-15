@@ -22,6 +22,7 @@ class PicLibrary {
   void savepicture(string filename, string path);
   void display(string filename);
   inline bool isJPG(string const &filename, string const &ending);
+  void exit();
 
 
     // picture transformation routines
