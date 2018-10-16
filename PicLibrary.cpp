@@ -138,35 +138,16 @@ void PicLibrary::rotate(int angle, string filename) {
 }
 
 void PicLibrary::rotate270(string filename) {
-    auto oldPic = loadedPictures[filename];
-    int width = oldPic.getwidth();
-    int height = oldPic.getheight();
-    Picture newPic(height, width);
-
-    for(int i = 0; i < height; i++){
-        for(int j = 0; j < width; j++){
-            newPic.setpixel(i, width - j, oldPic.getpixel(j, i));
-        }
-    }
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename, newPic});
+    rotate90(filename);
+    rotate90(filename);
+    rotate90(filename);
 }
 
 
 
 void PicLibrary::rotate180(string filename) {
-    auto oldPic = loadedPictures[filename];
-    int width = oldPic.getwidth();
-    int height = oldPic.getheight();
-    Picture newPic(height, width);
-
-     for(int j = 0; j < width; j++){
-            for(int i = 0; i < height; i++){
-                newPic.setpixel(((newPic.getwidth()) - j), newPic.getheight() - i, newPic.getpixel(j, i));
-            }
-     }
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename, newPic});
+    rotate90(filename);
+    rotate90(filename);
 }
 
 void PicLibrary::rotate90(string filename) {
