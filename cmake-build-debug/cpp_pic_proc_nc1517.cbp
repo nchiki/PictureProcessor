@@ -8,43 +8,43 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug"/>
+				<Option working_dir="/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug"/>
+				<Option working_dir="/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug"/>
+				<Option working_dir="/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cpp_pic_proc_nc1517">
-				<Option output="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/cpp_pic_proc_nc1517" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug"/>
+				<Option output="/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/cpp_pic_proc_nc1517" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/."/>
+					<Add directory="/homes/nc1517/cpp_pic_proc_nc1517/."/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -55,20 +55,20 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 cpp_pic_proc_nc1517"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 cpp_pic_proc_nc1517"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cpp_pic_proc_nc1517/fast">
-				<Option output="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/cpp_pic_proc_nc1517" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug"/>
+				<Option output="/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/cpp_pic_proc_nc1517" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/."/>
+					<Add directory="/homes/nc1517/cpp_pic_proc_nc1517/."/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -79,41 +79,41 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 cpp_pic_proc_nc1517/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 cpp_pic_proc_nc1517/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Colour.cpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/Colour.cpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Colour.hpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/Colour.hpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Main.cpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/Main.cpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/PicLibrary.cpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/PicLibrary.cpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/PicLibrary.hpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/PicLibrary.hpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Picture.cpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/Picture.cpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Picture.hpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/Picture.hpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Utils.cpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/Utils.cpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Utils.hpp">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/Utils.hpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/CMakeLists.txt">
+		<Unit filename="/homes/nc1517/cpp_pic_proc_nc1517/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/. 
+CXX_INCLUDES = -I/homes/nc1517/cpp_pic_proc_nc1517/. 
 

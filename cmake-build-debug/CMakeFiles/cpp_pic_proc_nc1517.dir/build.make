@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
+RM = /homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517
+CMAKE_SOURCE_DIR = /homes/nc1517/cpp_pic_proc_nc1517
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug
+CMAKE_BINARY_DIR = /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cpp_pic_proc_nc1517.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/cpp_pic_proc_nc1517.dir/flags.make
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o: CMakeFiles/cpp_pic_proc_nc1517.dir/flags.make
 CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o: ../Colour.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o -c /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Colour.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o -c /homes/nc1517/cpp_pic_proc_nc1517/Colour.cpp
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Colour.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /homes/nc1517/cpp_pic_proc_nc1517/Colour.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.i
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Colour.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /homes/nc1517/cpp_pic_proc_nc1517/Colour.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.s
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o.provides.build: CMakeFiles/cpp_p
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o: CMakeFiles/cpp_pic_proc_nc1517.dir/flags.make
 CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o: ../Main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o -c /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o -c /homes/nc1517/cpp_pic_proc_nc1517/Main.cpp
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Main.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /homes/nc1517/cpp_pic_proc_nc1517/Main.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.i
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Main.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /homes/nc1517/cpp_pic_proc_nc1517/Main.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.s
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o.provides.build: CMakeFiles/cpp_pic
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o: CMakeFiles/cpp_pic_proc_nc1517.dir/flags.make
 CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o: ../PicLibrary.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o -c /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/PicLibrary.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o -c /homes/nc1517/cpp_pic_proc_nc1517/PicLibrary.cpp
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/PicLibrary.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /homes/nc1517/cpp_pic_proc_nc1517/PicLibrary.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.i
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/PicLibrary.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /homes/nc1517/cpp_pic_proc_nc1517/PicLibrary.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.s
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o: CMakeFiles/cpp_pic_proc_nc1517.dir/flags.make
 CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o: ../Picture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o -c /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Picture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o -c /homes/nc1517/cpp_pic_proc_nc1517/Picture.cpp
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Picture.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /homes/nc1517/cpp_pic_proc_nc1517/Picture.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.i
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Picture.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /homes/nc1517/cpp_pic_proc_nc1517/Picture.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.s
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o.provides.build: CMakeFiles/cpp_
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o: CMakeFiles/cpp_pic_proc_nc1517.dir/flags.make
 CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o: ../Utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o -c /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o -c /homes/nc1517/cpp_pic_proc_nc1517/Utils.cpp
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Utils.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /homes/nc1517/cpp_pic_proc_nc1517/Utils.cpp > CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.i
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Utils.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /homes/nc1517/cpp_pic_proc_nc1517/Utils.cpp -o CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.s
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o.requires:
 
@@ -195,7 +195,7 @@ cpp_pic_proc_nc1517: CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o
 cpp_pic_proc_nc1517: CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o
 cpp_pic_proc_nc1517: CMakeFiles/cpp_pic_proc_nc1517.dir/build.make
 cpp_pic_proc_nc1517: CMakeFiles/cpp_pic_proc_nc1517.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable cpp_pic_proc_nc1517"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable cpp_pic_proc_nc1517"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cpp_pic_proc_nc1517.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -216,6 +216,6 @@ CMakeFiles/cpp_pic_proc_nc1517.dir/clean:
 .PHONY : CMakeFiles/cpp_pic_proc_nc1517.dir/clean
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/depend:
-	cd /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517 /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517 /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug /home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/DependInfo.cmake --color=$(COLOR)
+	cd /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /homes/nc1517/cpp_pic_proc_nc1517 /homes/nc1517/cpp_pic_proc_nc1517 /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cpp_pic_proc_nc1517.dir/depend
 

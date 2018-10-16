@@ -30,9 +30,9 @@ void PicLibrary::print_picturestore()
 void PicLibrary::loadpicture(string path, string filename)
 {
     string jpg = ".jpg";
-    if(!PicLibrary::isJPG(filename, "jpg")) {
+    if(!PicLibrary::isJPG(path, jpg)) {
         cerr << "Picture is not a .jpg file" << endl;
-    } else if(loadedPictures.find(filename) == loadedPictures.end()) {
+    } else if(loadedPictures.end() == loadedPictures.find(filename)) {
         Picture toAdd = Picture(path);
         if(toAdd.getheight() != 0) {
             loadedPictures.insert({filename, Picture(path)});
@@ -46,7 +46,7 @@ void PicLibrary::loadpicture(string path, string filename)
 }
 
 void PicLibrary::unloadpicture(string filename) {
-    if(!(loadedPictures.find(filename) == loadedPictures.end())) {
+    if(loadedPictures.find(filename) != loadedPictures.end()) {
         loadedPictures.erase(filename);
         cout << filename << " successfully removed!" << endl;
     } else {
@@ -55,7 +55,7 @@ void PicLibrary::unloadpicture(string filename) {
 }
 
 void PicLibrary::savepicture(string filename, string path) {
-    if(!(loadedPictures.find(filename) == loadedPictures.end())) {
+    if(loadedPictures.find(filename) != loadedPictures.end()) {
         auto picture = loadedPictures.find(filename)->second;
         Utils util;
         util.saveimage(picture.getimage(), path);
@@ -66,7 +66,7 @@ void PicLibrary::savepicture(string filename, string path) {
 }
 
 void PicLibrary::display(string filename) {
-    if(!(loadedPictures.find(filename) == loadedPictures.end())) {
+    if(loadedPictures.find(filename) != loadedPictures.end()) {
         auto picture = loadedPictures.find(filename)->second;
         Utils util;
         util.displayimage(picture.getimage());
@@ -103,8 +103,8 @@ void PicLibrary::grayscale(string key) {
 
 void PicLibrary::flipVH(char plane, string filename) {
     switch(plane) {
-        case('V'): flipV(filename);
-        case('H'): flipH(filename);
+        case('V'): flipV(filename); break;
+        case('H'): flipH(filename); break;
     }
 }
 
@@ -116,6 +116,8 @@ void PicLibrary::flipV(string filename){
             newPic.setpixel(j, i, Colour(oldPic.getpixel(j, ((oldPic.getheight() - 1) - i))));
         }
     }
+    loadedPictures.erase(filename);
+    loadedPictures.insert({filename,newPic});
 }
 
 void PicLibrary::flipH(string filename) {
@@ -125,64 +127,47 @@ void PicLibrary::flipH(string filename) {
         for (int j = 0; j < oldPic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(oldPic.getpixel(((oldPic.getwidth() - 1) - j), i)));
         }
-
     }
+
+    loadedPictures.erase(filename);
+    loadedPictures.insert({filename,newPic});
 }
 
 void PicLibrary::rotate(int angle, string filename) {
     switch(angle) {
-        case(90): rotate90(filename);
-        case(180): rotate180(filename);
-        case(270): rotate270(filename);
+        case(90): rotate90(filename); break;
+        case(180): rotate180(filename); break;
+        case(270): rotate270(filename); break;
     }
 }
 
 void PicLibrary::rotate270(string filename) {
-    auto oldPic = loadedPictures[filename];
-    int width = oldPic.getwidth();
-    int height = oldPic.getheight();
-    Picture newPic(height, width);
-
-    for(int i = 0; i < height; i++){
-        for(int j = 0; j < width; j++){
-            newPic.setpixel(i, width - j, oldPic.getpixel(j, i));
-        }
-    }
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename, &newPic});
+    rotate90(filename);
+    rotate90(filename);
+    rotate90(filename);
 }
 
 
 
 void PicLibrary::rotate180(string filename) {
-    auto oldPic = loadedPictures[filename];
-    int width = oldPic.getwidth();
-    int height = oldPic.getheight();
-    Picture newPic(height, width);
-
-     for(int j = 0; j < width; j++){
-            for(int i = 0; i < height; i++){
-                newPic.setpixel(((newPic.getwidth()) - j), newPic.getheight() - i, newPic.getpixel(j, i));
-            }
-     }
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename, &newPic});
+    rotate90(filename);
+    rotate90(filename);
 }
 
 void PicLibrary::rotate90(string filename) {
     auto oldPic = loadedPictures[filename];
     int width = oldPic.getwidth();
     int height = oldPic.getheight();
-    Picture newPic(height, width);
+    Picture newPic = Picture(height, width);
 
-    for(int i = 0; i < width; i++){
-        for(int j = 0; j < height; j++){
-            newPic.setpixel(j, i, oldPic.getpixel(j,oldPic.getheight() - i -1));
+    for(int x = 0; x < width; x++){
+        for(int y = 0; y < height; y++){
+            newPic.setpixel(y, x, oldPic.getpixel(x, (oldPic.getheight() - y - 1)));
         }
     }
 
     loadedPictures.erase(filename);
-    loadedPictures.insert({filename, &newPic});
+    loadedPictures.insert({filename,newPic});
 }
 
 
@@ -209,6 +194,4 @@ void PicLibrary::blur(string filename) {
             }
         }
     }
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename, &newPic});
 }
