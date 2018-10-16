@@ -103,8 +103,8 @@ void PicLibrary::grayscale(string key) {
 
 void PicLibrary::flipVH(char plane, string filename) {
     switch(plane) {
-        case('V'): flipV(filename);
-        case('H'): flipH(filename);
+        case('V'): flipV(filename); break;
+        case('H'): flipH(filename); break;
     }
 }
 
@@ -154,7 +154,7 @@ void PicLibrary::rotate90(string filename) {
     auto oldPic = loadedPictures[filename];
     int width = oldPic.getwidth();
     int height = oldPic.getheight();
-    Picture newPic = Picture(height, width); //bild ist umgedreht
+    Picture newPic = Picture(height, width);
 
     for(int x = 0; x < width; x++){
         for(int y = 0; y < height; y++){
@@ -191,8 +191,3 @@ void PicLibrary::blur(string filename) {
         }
     }
 }
-
-/*
-void PicLibrary::exit() {
-    delete(loadedPictures);
-} */
