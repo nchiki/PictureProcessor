@@ -209,9 +209,6 @@ void PicLibrary::blur(string filename) {
             }
         }
     }
+    loadedPictures.erase(filename);
+    loadedPictures.insert({filename, &newPic});
 }
-
-/*
-void PicLibrary::exit() {
-    delete(loadedPictures);
-} */
