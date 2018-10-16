@@ -116,6 +116,8 @@ void PicLibrary::flipV(string filename){
             newPic.setpixel(j, i, Colour(oldPic.getpixel(j, ((oldPic.getheight() - 1) - i))));
         }
     }
+    loadedPictures.erase(filename);
+    loadedPictures.insert({filename,newPic});
 }
 
 void PicLibrary::flipH(string filename) {
@@ -125,8 +127,10 @@ void PicLibrary::flipH(string filename) {
         for (int j = 0; j < oldPic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(oldPic.getpixel(((oldPic.getwidth() - 1) - j), i)));
         }
-
     }
+
+    loadedPictures.erase(filename);
+    loadedPictures.insert({filename,newPic});
 }
 
 void PicLibrary::rotate(int angle, string filename) {
