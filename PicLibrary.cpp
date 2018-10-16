@@ -189,6 +189,7 @@ void PicLibrary::blur(string filename) {
     }
 }
 
+/*
 void PicLibrary::exit() {
     delete(loadedPictures);
-}
+} */

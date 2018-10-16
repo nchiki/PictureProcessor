@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87c7325f-a41f-4b34-a73d-60145822ca31" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PicLibrary.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PicLibrary.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="PicLibrary.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PicLibrary.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="168" column="68" selection-start-line="168" selection-start-column="68" selection-end-line="168" selection-end-column="68" />
+            <state relative-caret-position="816">
+              <caret line="194" column="4" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="4" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -162,12 +161,12 @@
       <updated>1539349461921</updated>
       <workItem from="1539349465036" duration="2335000" />
       <workItem from="1539356805586" duration="20499000" />
-      <workItem from="1539684558694" duration="191000" />
+      <workItem from="1539684558694" duration="391000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23025000" />
+    <option name="totallyTimeSpent" value="23225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="927" height="1053" extended-state="4" />
@@ -320,8 +319,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PicLibrary.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="168" column="68" selection-start-line="168" selection-start-column="68" selection-end-line="168" selection-end-column="68" />
+        <state relative-caret-position="816">
+          <caret line="194" column="4" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="4" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
