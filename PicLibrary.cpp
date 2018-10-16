@@ -30,9 +30,9 @@ void PicLibrary::print_picturestore()
 void PicLibrary::loadpicture(string path, string filename)
 {
     string jpg = ".jpg";
-    if(!PicLibrary::isJPG(filename, "jpg")) {
+    if(!PicLibrary::isJPG(path, jpg)) {
         cerr << "Picture is not a .jpg file" << endl;
-    } else if(loadedPictures.find(filename) == loadedPictures.end()) {
+    } else if(loadedPictures.end() == loadedPictures.find(filename)) {
         Picture toAdd = Picture(path);
         if(toAdd.getheight() != 0) {
             loadedPictures.insert({filename, Picture(path)});
@@ -46,7 +46,7 @@ void PicLibrary::loadpicture(string path, string filename)
 }
 
 void PicLibrary::unloadpicture(string filename) {
-    if(!(loadedPictures.find(filename) == loadedPictures.end())) {
+    if(loadedPictures.find(filename) != loadedPictures.end()) {
         loadedPictures.erase(filename);
         cout << filename << " successfully removed!" << endl;
     } else {
@@ -55,7 +55,7 @@ void PicLibrary::unloadpicture(string filename) {
 }
 
 void PicLibrary::savepicture(string filename, string path) {
-    if(!(loadedPictures.find(filename) == loadedPictures.end())) {
+    if(loadedPictures.find(filename) != loadedPictures.end()) {
         auto picture = loadedPictures.find(filename)->second;
         Utils util;
         util.saveimage(picture.getimage(), path);
@@ -66,7 +66,7 @@ void PicLibrary::savepicture(string filename, string path) {
 }
 
 void PicLibrary::display(string filename) {
-    if(!(loadedPictures.find(filename) == loadedPictures.end())) {
+    if(loadedPictures.find(filename) != loadedPictures.end()) {
         auto picture = loadedPictures.find(filename)->second;
         Utils util;
         util.displayimage(picture.getimage());
