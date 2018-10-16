@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
     char plane;
     cin >> cmd;
 
-    while (cmd != "exit" || cin.peek() != EOF) {
+    while (cmd != "exit" && cin.peek() != EOF) {
 
         if (cmd == "liststore") {
             lib.print_picturestore();
