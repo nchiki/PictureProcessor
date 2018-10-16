@@ -172,10 +172,10 @@ void PicLibrary::rotate90(string filename) {
 
 
 void PicLibrary::blur(string filename) {
-    Picture oldPic = loadedPictures[filename];
+    auto oldPic = loadedPictures[filename];
     Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     for(int i = 0; i < (oldPic.getheight()); i++) {
-        for(int j = 0; j < (oldPic.getheight()); j++) {
+        for(int j = 0; j < (oldPic.getwidth()); j++) {
             if((i != 0) && (j != 0) && (i != (oldPic.getheight() - 1)) && (j != (oldPic.getwidth() - 1))) {
                 int red = 0;
                 int blue = 0;
