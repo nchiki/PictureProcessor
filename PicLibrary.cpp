@@ -131,9 +131,9 @@ void PicLibrary::flipH(string filename) {
 
 void PicLibrary::rotate(int angle, string filename) {
     switch(angle) {
-        case(90): rotate90(filename);
-        case(180): rotate180(filename);
-        case(270): rotate270(filename);
+        case(90): rotate90(filename); break;
+        case(180): rotate180(filename); break;
+        case(270): rotate270(filename); break;
     }
 }
 
@@ -173,16 +173,16 @@ void PicLibrary::rotate90(string filename) {
     auto oldPic = loadedPictures[filename];
     int width = oldPic.getwidth();
     int height = oldPic.getheight();
-    Picture newPic(height, width);
+    Picture newPic = Picture(height, width); //bild ist umgedreht
 
-    for(int i = 0; i < width; i++){
-        for(int j = 0; j < height; j++){
-            newPic.setpixel(j, i, oldPic.getpixel(j,oldPic.getheight() - i -1));
+    for(int x = 0; x < width; x++){
+        for(int y = 0; y < height; y++){
+            newPic.setpixel(y, x, oldPic.getpixel(x, (oldPic.getheight() - y - 1)));
         }
     }
 
     loadedPictures.erase(filename);
-    loadedPictures.insert({filename, newPic});
+    loadedPictures.insert({filename,newPic});
 }
 
 
