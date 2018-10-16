@@ -182,13 +182,13 @@ void PicLibrary::blur(string filename) {
                 int green = 0;
                 for(int k = (i - 1); k <= (i + 1); ++k) {
                     for(int l = (j - 1); l <= (j + 1); ++l) {
-                        Colour colour = newPic.getpixel(l, k);
+                        Colour colour = oldPic.getpixel(l, k);
                         red += colour.getred();
                         green += colour.getgreen();
                         blue += colour.getblue();
             }
         }
-        newPic.setpixel(j, i, Colour (red/9, green/9, blue/9));
+        newPic.setpixel(j, i, Colour(red/9, green/9, blue/9));
     } else {
         newPic.setpixel(j, i, oldPic.getpixel(j, i));
             }
