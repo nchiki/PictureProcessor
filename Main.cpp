@@ -24,6 +24,7 @@ int main(int argc, char **argv) {
         lib.loadpicture(argv[i], name);
     }
 
+    //VON NIRANJAN ERKLÄREN LASSEN (Part hier vor)
 
     string cmd;
     string name;
