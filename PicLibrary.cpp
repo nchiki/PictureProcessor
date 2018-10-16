@@ -110,8 +110,7 @@ void PicLibrary::flipVH(char plane, string filename) {
 
 void PicLibrary::flipV(string filename){
     Picture oldPic = loadedPictures[filename];
-    Utils util;
-    auto newPic = util.createimage(oldPic.getwidth(), oldPic.getheight());
+    Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     for(int i = 0; i < oldPic.getheight(); i++) {
         for(int j = 0; j < oldPic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(oldPic.getpixel(j, ((oldPic.getheight() - 1) - i))));
@@ -121,8 +120,7 @@ void PicLibrary::flipV(string filename){
 
 void PicLibrary::flipH(string filename) {
     Picture oldPic = loadedPictures[filename];
-    Utils util;
-    auto newPic = util.createimage(oldPic.getwidth(), oldPic.getheight());
+    Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     for (int i = 0; i < oldPic.getheight(); i++) {
         for (int j = 0; j < oldPic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(oldPic.getpixel(((oldPic.getwidth() - 1) - j), i)));
@@ -133,8 +131,7 @@ void PicLibrary::flipH(string filename) {
 
 void PicLibrary::rotate(int angle, string filename) {
     Picture oldPic = loadedPictures[filename];
-    Utils util;
-    auto newPic = util.createimage(oldPic.getheight(), oldPic.getwidth());
+    Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     switch(angle) {
         case(90): rotate90(filename, &newPic, &oldPic);
         case(180): rotate180(filename, &newPic, &oldPic);
@@ -169,8 +166,7 @@ void PicLibrary::rotate90(string filename, Picture *newPic, Picture *oldPic) {
 
 void PicLibrary::blur(string filename) {
     Picture oldPic = loadedPictures[filename];
-    Utils util;
-    auto newPic = util.createimage(oldPic.getwidth(), oldPic.getheight());
+    Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     for(int i = 0; i < (oldPic.getheight()); i++) {
         for(int j = 0; j < (oldPic.getheight()); j++) {
             if((i != 0) && (j != 0) && (i != (oldPic.getheight() - 1)) && (j != (oldPic.getwidth() - 1))) {
