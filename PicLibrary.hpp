@@ -23,9 +23,9 @@ class PicLibrary {
   void display(string filename);
   inline bool isJPG(string const &filename, string const &ending);
   void exit();
-  void rotate90(string filename, Picture *newPic, Picture *oldPic);
-  void rotate180(string filename, Picture *newPic, Picture *oldPic);
-  void rotate270(string filename, Picture *newPic, Picture *oldPic);
+  void rotate90(string filename);
+  void rotate180(string filename);
+  void rotate270(string filename);
   void flipV(string filename);
   void flipH(string filename);
 

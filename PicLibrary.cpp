@@ -130,37 +130,59 @@ void PicLibrary::flipH(string filename) {
 }
 
 void PicLibrary::rotate(int angle, string filename) {
-    Picture oldPic = loadedPictures[filename];
-    Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     switch(angle) {
-        case(90): rotate90(filename, &newPic, &oldPic);
-        case(180): rotate180(filename, &newPic, &oldPic);
-        case(270): rotate270(filename, &newPic, &oldPic);
+        case(90): rotate90(filename);
+        case(180): rotate180(filename);
+        case(270): rotate270(filename);
     }
 }
 
-void PicLibrary::rotate270(string filename, Picture *newPic, Picture *oldPic) {
-    for(int i = 0; i < oldPic->getheight(); i++){
-        for(int j = 0; j < oldPic->getwidth(); j++){
-            newPic->setpixel(i, oldPic->getwidth() - j, oldPic->getpixel(j, i));
+void PicLibrary::rotate270(string filename) {
+    auto oldPic = loadedPictures[filename];
+    int width = oldPic.getwidth();
+    int height = oldPic.getheight();
+    Picture newPic(height, width);
+
+    for(int i = 0; i < height; i++){
+        for(int j = 0; j < width; j++){
+            newPic.setpixel(i, width - j, oldPic.getpixel(j, i));
         }
     }
+    loadedPictures.erase(filename);
+    loadedPictures.insert({filename, &newPic});
 }
 
-void PicLibrary::rotate180(string filename, Picture *newPic, Picture *oldPic) {
-     for(int j = 0; j < oldPic->getwidth(); j++){
-            for(int i = 0; i < oldPic->getheight(); i++){
-                newPic->setpixel(((newPic->getwidth()) - j), newPic->getheight() - i, newPic->getpixel(j, i));
+
+
+void PicLibrary::rotate180(string filename) {
+    auto oldPic = loadedPictures[filename];
+    int width = oldPic.getwidth();
+    int height = oldPic.getheight();
+    Picture newPic(height, width);
+
+     for(int j = 0; j < width; j++){
+            for(int i = 0; i < height; i++){
+                newPic.setpixel(((newPic.getwidth()) - j), newPic.getheight() - i, newPic.getpixel(j, i));
             }
-        }
+     }
+    loadedPictures.erase(filename);
+    loadedPictures.insert({filename, &newPic});
 }
 
-void PicLibrary::rotate90(string filename, Picture *newPic, Picture *oldPic) {
-    for(int i = 0; i < oldPic->getheight(); i++) {
-        for(int j = 0; j < newPic->getwidth(); j++) {
-            newPic->setpixel(((newPic->getwidth() - 1) - i), j, Colour(oldPic->getpixel(j, i)));
+void PicLibrary::rotate90(string filename) {
+    auto oldPic = loadedPictures[filename];
+    int width = oldPic.getwidth();
+    int height = oldPic.getheight();
+    Picture newPic(height, width);
+
+    for(int i = 0; i < width; i++){
+        for(int j = 0; j < height; j++){
+            newPic.setpixel(j, i, oldPic.getpixel(j,oldPic.getheight() - i -1));
         }
     }
+
+    loadedPictures.erase(filename);
+    loadedPictures.insert({filename, &newPic});
 }
 
 
