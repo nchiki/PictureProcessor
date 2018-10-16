@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Colour.cpp" "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o"
-  "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Main.cpp" "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o"
-  "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/PicLibrary.cpp" "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o"
-  "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Picture.cpp" "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o"
-  "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/Utils.cpp" "/home/nahida/Documents/Year2/C++/Tutorials/PictureProcessing/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o"
+  "/homes/nc1517/cpp_pic_proc_nc1517/Colour.cpp" "/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/Colour.cpp.o"
+  "/homes/nc1517/cpp_pic_proc_nc1517/Main.cpp" "/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/Main.cpp.o"
+  "/homes/nc1517/cpp_pic_proc_nc1517/PicLibrary.cpp" "/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o"
+  "/homes/nc1517/cpp_pic_proc_nc1517/Picture.cpp" "/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o"
+  "/homes/nc1517/cpp_pic_proc_nc1517/Utils.cpp" "/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

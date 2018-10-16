@@ -149,7 +149,7 @@ void PicLibrary::rotate270(string filename) {
         }
     }
     loadedPictures.erase(filename);
-    loadedPictures.insert({filename, &newPic});
+    loadedPictures.insert({filename, newPic});
 }
 
 
@@ -166,7 +166,7 @@ void PicLibrary::rotate180(string filename) {
             }
      }
     loadedPictures.erase(filename);
-    loadedPictures.insert({filename, &newPic});
+    loadedPictures.insert({filename, newPic});
 }
 
 void PicLibrary::rotate90(string filename) {
@@ -182,7 +182,7 @@ void PicLibrary::rotate90(string filename) {
     }
 
     loadedPictures.erase(filename);
-    loadedPictures.insert({filename, &newPic});
+    loadedPictures.insert({filename, newPic});
 }
 
 
