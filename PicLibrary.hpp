@@ -4,11 +4,13 @@
 #include <unordered_map>
 #include "Picture.hpp"
 #include "Utils.hpp"
+#include "PicWrapper.h"
+
 
 class PicLibrary {
 
   private:
-    unordered_map<std::string, Picture> loadedPictures;
+    unordered_map<std::string, PicWrapper*> loadedPictures;
 
   public:
   // defaiult constructor/deconstructor
@@ -22,15 +24,19 @@ class PicLibrary {
   void savepicture(string filename, string path);
   void display(string filename);
   inline bool isJPG(string const &filename, string const &ending);
+  bool checkMapforFile(string filename);
+  PicWrapper* getWrapper(string filename);
   void exit();
   void rotate90(string filename);
   void rotate180(string filename);
   void rotate270(string filename);
   void flipV(string filename);
   void flipH(string filename);
+  void joinPicThreads(string filename);
+  void joinAllThreads();
 
 
-        // picture transformation routines
+      // picture transformation routines
   void invert(string filename);
   void grayscale(string filename);
   void rotate(int angle, string filename);

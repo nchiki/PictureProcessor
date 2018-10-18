@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.o"
   "CMakeFiles/cpp_pic_proc_nc1517.dir/Picture.cpp.o"
   "CMakeFiles/cpp_pic_proc_nc1517.dir/Utils.cpp.o"
+  "CMakeFiles/cpp_pic_proc_nc1517.dir/PicWrapper.cpp.o"
   "cpp_pic_proc_nc1517.pdb"
   "cpp_pic_proc_nc1517"
 )

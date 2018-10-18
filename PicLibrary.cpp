@@ -3,7 +3,45 @@
 #include "Colour.hpp"
 
 
+//NOCH SEQUENTIAL SACHEN HINZUFÜGEN UND DANN AUSKOMMENTIEREN UND TESTEN
+//ANDERE DATEI MIT ERKLÄRUNGEN HINZUFÜGEN
 
+
+
+void PicLibrary::joinPicThreads(string filename) {
+    PicWrapper* pic = loadedPictures[filename];
+    for(thread t : pic->threads) {
+        t.join();
+    }
+    pic->threads.clear();
+}
+
+void PicLibrary::joinAllThreads() {
+    for (unordered_map<std::string, PicWrapper *>::const_iterator it = loadedPictures.begin();
+         it != loadedPictures.end(); ++it) {
+        joinPicThreads(it->first);
+    }
+}
+
+bool PicLibrary::checkMapforFile(string filename) {
+    for (unordered_map<std::string, PicWrapper *>::const_iterator it = loadedPictures.begin();
+         it != loadedPictures.end(); ++it) {
+        if(it->first == filename) {
+            return true;
+        }
+    }
+    return false; 
+}
+
+PicWrapper* PicLibrary::getWrapper(string filename) {
+    for (unordered_map<std::string, PicWrapper *>::const_iterator it = loadedPictures.begin();
+         it != loadedPictures.end(); ++it) {
+        if(it->first == filename) {
+            return it->second;
+        }
+    }
+    return NULL;
+}
 
 inline bool PicLibrary::isJPG(string const &filename, string const &ending)
 {
@@ -27,6 +65,7 @@ void PicLibrary::print_picturestore()
     }
 }
 
+/* SEQUENTIAL IMPLEMENTATION
 void PicLibrary::loadpicture(string path, string filename)
 {
     string jpg = ".jpg";
@@ -44,7 +83,29 @@ void PicLibrary::loadpicture(string path, string filename)
         cerr << "Picture already exists" << endl;
     }
 }
+*/
 
+//MODIFIED
+void PicLibrary::loadpicture(string path, string filename)
+{
+    string jpg = ".jpg";
+    if(!PicLibrary::isJPG(path, jpg)) {
+        cerr << "Picture is not a .jpg file" << endl;
+    } else if(loadedPictures.end() == loadedPictures.find(filename)) {
+        Picture toAdd = Picture(path);
+        if(toAdd.getheight() != 0) {
+            PicWrapper* toA = new PicWrapper(&toAdd);
+            loadedPictures.insert({filename, toA});
+            cout << filename << " saved!" << endl;
+        } else {
+            cout << path << " doesn't exist!" << endl;
+        }
+    } else {
+        cerr << "Picture already exists" << endl;
+    }
+}
+
+//SEQUENTIAL IS THE SAME
 void PicLibrary::unloadpicture(string filename) {
     if(loadedPictures.find(filename) != loadedPictures.end()) {
         loadedPictures.erase(filename);
@@ -56,7 +117,7 @@ void PicLibrary::unloadpicture(string filename) {
 
 void PicLibrary::savepicture(string filename, string path) {
     if(loadedPictures.find(filename) != loadedPictures.end()) {
-        auto picture = loadedPictures.find(filename)->second;
+        auto picture = loadedPictures.find(filename)->second->pic;
         Utils util;
         util.saveimage(picture.getimage(), path);
         cout << filename << " has been saved!" << endl;
@@ -67,7 +128,7 @@ void PicLibrary::savepicture(string filename, string path) {
 
 void PicLibrary::display(string filename) {
     if(loadedPictures.find(filename) != loadedPictures.end()) {
-        auto picture = loadedPictures.find(filename)->second;
+        auto picture = loadedPictures.find(filename)->second->pic;
         Utils util;
         util.displayimage(picture.getimage());
     } else {
@@ -76,8 +137,9 @@ void PicLibrary::display(string filename) {
 }
 
 void PicLibrary::invert(string filename) {
+    loadedPictures[filename]->mtex.lock();
     if(loadedPictures.find(filename) != loadedPictures.end()) {
-        Picture pic = loadedPictures[filename];
+        Picture pic = loadedPictures[filename]->pic;
         for(int i = 0; i < pic.getheight(); i++) {
             for(int j = 0; j < pic.getwidth(); j++) {
                 Colour temp = pic.getpixel(j, i);
@@ -88,10 +150,12 @@ void PicLibrary::invert(string filename) {
     } else {
         cout << filename << " is not in the picture library's internal picture store" << endl;
     }
+    loadedPictures[filename]->mtex.unlock();
 }
 
 void PicLibrary::grayscale(string key) {
-    Picture pic = loadedPictures[key];
+    loadedPictures[key]->mtex.lock();
+    Picture pic = loadedPictures[key]->pic;
     for(int i = 0; i < pic.getwidth(); i++) {
         for(int j = 0; j < pic.getheight(); j++) {
             Colour temp = pic.getpixel(i, j);
@@ -99,6 +163,7 @@ void PicLibrary::grayscale(string key) {
             pic.setpixel(i, j, Colour(average, average, average));
         }
     }
+    loadedPictures[key]->mtex.unlock();
 }
 
 void PicLibrary::flipVH(char plane, string filename) {
@@ -109,28 +174,29 @@ void PicLibrary::flipVH(char plane, string filename) {
 }
 
 void PicLibrary::flipV(string filename){
-    Picture oldPic = loadedPictures[filename];
+    loadedPictures[filename]->mtex.lock();
+    Picture oldPic = loadedPictures[filename]->pic;
     Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     for(int i = 0; i < oldPic.getheight(); i++) {
         for(int j = 0; j < oldPic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(oldPic.getpixel(j, ((oldPic.getheight() - 1) - i))));
         }
     }
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename,newPic});
+    oldPic.setimage(newPic.getimage());
+    loadedPictures[filename]->mtex.unlock();
 }
 
 void PicLibrary::flipH(string filename) {
-    Picture oldPic = loadedPictures[filename];
+    loadedPictures[filename]->mtex.lock();
+    Picture oldPic = loadedPictures[filename]->pic;
     Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     for (int i = 0; i < oldPic.getheight(); i++) {
         for (int j = 0; j < oldPic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(oldPic.getpixel(((oldPic.getwidth() - 1) - j), i)));
         }
     }
-
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename,newPic});
+    oldPic.setimage(newPic.getimage());
+    loadedPictures[filename]->mtex.unlock();
 }
 
 void PicLibrary::rotate(int angle, string filename) {
@@ -147,15 +213,14 @@ void PicLibrary::rotate270(string filename) {
     rotate90(filename);
 }
 
-
-
 void PicLibrary::rotate180(string filename) {
     rotate90(filename);
     rotate90(filename);
 }
 
 void PicLibrary::rotate90(string filename) {
-    auto oldPic = loadedPictures[filename];
+    loadedPictures[filename]->mtex.lock();
+    auto oldPic = loadedPictures[filename]->pic;
     int width = oldPic.getwidth();
     int height = oldPic.getheight();
     Picture newPic = Picture(height, width);
@@ -165,14 +230,14 @@ void PicLibrary::rotate90(string filename) {
             newPic.setpixel(y, x, oldPic.getpixel(x, (oldPic.getheight() - y - 1)));
         }
     }
-
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename,newPic});
+    oldPic.setimage(newPic.getimage());
+    loadedPictures[filename]->mtex.unlock();
 }
 
 
 void PicLibrary::blur(string filename) {
-    auto oldPic = loadedPictures[filename];
+    loadedPictures[filename]->mtex.lock();
+    auto oldPic = loadedPictures[filename]->pic;
     Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
     for(int i = 0; i < (oldPic.getheight()); i++) {
         for(int j = 0; j < (oldPic.getwidth()); j++) {
@@ -194,6 +259,7 @@ void PicLibrary::blur(string filename) {
             }
         }
     }
-    loadedPictures.erase(filename);
-    loadedPictures.insert({filename,newPic});
+    oldPic.setimage(newPic.getimage());
+    loadedPictures[filename]->mtex.unlock();
 }
+

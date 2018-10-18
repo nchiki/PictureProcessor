@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
+RM = /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /homes/nc1517/cpp_pic_proc_nc1517
+CMAKE_SOURCE_DIR = /home/nahida/cpp_pic_proc_nc1517
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug
+CMAKE_BINARY_DIR = /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,33 @@ PicLibrary.cpp.s:
 	$(MAKE) -f CMakeFiles/cpp_pic_proc_nc1517.dir/build.make CMakeFiles/cpp_pic_proc_nc1517.dir/PicLibrary.cpp.s
 .PHONY : PicLibrary.cpp.s
 
+PicWrapper.o: PicWrapper.cpp.o
+
+.PHONY : PicWrapper.o
+
+# target to build an object file
+PicWrapper.cpp.o:
+	$(MAKE) -f CMakeFiles/cpp_pic_proc_nc1517.dir/build.make CMakeFiles/cpp_pic_proc_nc1517.dir/PicWrapper.cpp.o
+.PHONY : PicWrapper.cpp.o
+
+PicWrapper.i: PicWrapper.cpp.i
+
+.PHONY : PicWrapper.i
+
+# target to preprocess a source file
+PicWrapper.cpp.i:
+	$(MAKE) -f CMakeFiles/cpp_pic_proc_nc1517.dir/build.make CMakeFiles/cpp_pic_proc_nc1517.dir/PicWrapper.cpp.i
+.PHONY : PicWrapper.cpp.i
+
+PicWrapper.s: PicWrapper.cpp.s
+
+.PHONY : PicWrapper.s
+
+# target to generate assembly for a file
+PicWrapper.cpp.s:
+	$(MAKE) -f CMakeFiles/cpp_pic_proc_nc1517.dir/build.make CMakeFiles/cpp_pic_proc_nc1517.dir/PicWrapper.cpp.s
+.PHONY : PicWrapper.cpp.s
+
 Picture.o: Picture.cpp.o
 
 .PHONY : Picture.o
@@ -276,6 +303,9 @@ help:
 	@echo "... PicLibrary.o"
 	@echo "... PicLibrary.i"
 	@echo "... PicLibrary.s"
+	@echo "... PicWrapper.o"
+	@echo "... PicWrapper.i"
+	@echo "... PicWrapper.s"
 	@echo "... Picture.o"
 	@echo "... Picture.i"
 	@echo "... Picture.s"
