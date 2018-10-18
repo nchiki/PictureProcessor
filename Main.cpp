@@ -9,16 +9,16 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-    PicLibrary lib = PicLibrary();
+    PicLibrary lib;
 
     //loads all needed pictures
     for (int i = 1; argv[i] != NULL; ++i) {
-        size_t start = string(argv[i]).rfind("/");
+        size_t start = string(argv[i]).rfind("/")+1;
         char *name;
         if (start == string::npos) {
             name = argv[i];
         } else {
-            name = &argv[i][start + 1];
+            name = &argv[i][start];
         }
 
         lib.loadpicture(argv[i], name);
