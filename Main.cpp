@@ -9,19 +9,27 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-    PicLibrary lib;
 
     //loads all needed pictures
-    for (int i = 1; argv[i] != NULL; ++i) {
-        size_t start = string(argv[i]).rfind("/")+1;
+    PicLibrary lib;
+
+    for ( int i = 1 ; argv[i] != NULL; ++i)
+    {
         char *name;
-        if (start == string::npos) {
+        size_t name_start = string(argv[i]).rfind("/")+1;
+
+        if (name_start == string::npos)
+        {
             name = argv[i];
-        } else {
-            name = &argv[i][start];
         }
+        else
+        {
+            name = &argv[i][name_start];
+        }
+
         lib.loadpicture(argv[i], name);
     }
+
 
     string cmd;
     string name;
