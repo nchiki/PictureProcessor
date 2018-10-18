@@ -26,8 +26,6 @@ void PicLibrary::joinAllThreads() {
     {
         i.second->threads.clear();
     }
-
-
 }
 
 bool PicLibrary::checkMapforFile(string filename) {
@@ -149,8 +147,8 @@ void PicLibrary::invert(string filename) {
 }
 
 void PicLibrary::grayscale(string key) {
-    loadedPictures[key]->mtex.lock();
     auto wrapper = loadedPictures[key];
+    loadedPictures[key]->mtex.lock();
     for(int i = 0; i < wrapper->pic.getwidth(); i++) {
         for(int j = 0; j < wrapper->pic.getheight(); j++) {
             Colour temp = wrapper->pic.getpixel(i, j);
@@ -168,30 +166,30 @@ void PicLibrary::flipVH(char plane, string filename) {
     }
 }
 
-void PicLibrary::flipV(string filename){
+void PicLibrary::flipV(string filename) {
+    auto wrapper = loadedPictures[filename];
     loadedPictures[filename]->mtex.lock();
-    Picture oldPic = loadedPictures[filename]->pic;
-    Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
-    for(int i = 0; i < oldPic.getheight(); i++) {
-        for(int j = 0; j < oldPic.getwidth(); j++) {
-            newPic.setpixel(j, i, Colour(oldPic.getpixel(j, ((oldPic.getheight() - 1) - i))));
+    Picture newPic = Picture(wrapper->pic.getwidth(), wrapper->pic.getheight());
+    for (int i = 0; i < wrapper->pic.getheight(); i++) {
+        for (int j = 0; j < wrapper->pic.getwidth(); j++) {
+            newPic.setpixel(j, i, Colour(wrapper->pic.getpixel(j, ((wrapper->pic.getheight() - 1) - i))));
         }
     }
-    loadedPictures[filename]->pic.setimage(newPic.getimage());
-    loadedPictures[filename]->mtex.unlock();
+    wrapper->pic.setimage(newPic.getimage());
+    wrapper->mtex.unlock();
 }
 
 void PicLibrary::flipH(string filename) {
-    loadedPictures[filename]->mtex.lock();
-    Picture oldPic = loadedPictures[filename]->pic;
-    Picture newPic = Picture(oldPic.getwidth(), oldPic.getheight());
-    for (int i = 0; i < oldPic.getheight(); i++) {
-        for (int j = 0; j < oldPic.getwidth(); j++) {
-            newPic.setpixel(j, i, Colour(oldPic.getpixel(((oldPic.getwidth() - 1) - j), i)));
+    auto wrapper = loadedPictures[filename];
+    wrapper->mtex.lock();
+    Picture newPic = Picture(wrapper->pic.getwidth(), wrapper->pic.getheight());
+    for (int i = 0; i < wrapper->pic.getheight(); i++) {
+        for (int j = 0; j < wrapper->pic.getwidth(); j++) {
+            newPic.setpixel(j, i, Colour(wrapper->pic.getpixel(((wrapper->pic.getwidth() - 1) - j), i)));
         }
     }
-    loadedPictures[filename]->pic.setimage(newPic.getimage());
-    loadedPictures[filename]->mtex.unlock();
+    wrapper->pic.setimage(newPic.getimage());
+    wrapper->mtex.unlock();
 }
 
 void PicLibrary::rotate(int angle, string filename) {
@@ -214,8 +212,8 @@ void PicLibrary::rotate180(string filename) {
 }
 
 void PicLibrary::rotate90(string filename) {
-    loadedPictures[filename]->mtex.lock();
     auto wrapper = loadedPictures[filename];
+    wrapper->mtex.lock();
     int width = wrapper->pic.getwidth();
     int height = wrapper->pic.getheight();
     Picture newPic = Picture(height, width);
@@ -226,13 +224,13 @@ void PicLibrary::rotate90(string filename) {
         }
     }
     wrapper->pic.setimage(newPic.getimage());
-    loadedPictures[filename]->mtex.unlock();
+    wrapper->mtex.unlock();
 }
 
 
 void PicLibrary::blur(string filename) {
-    loadedPictures[filename]->mtex.lock();
     auto wrapper = loadedPictures[filename];
+    wrapper->mtex.lock();
     Picture newPic = Picture(wrapper->pic.getwidth(), wrapper->pic.getheight());
     for(int i = 0; i < (wrapper->pic.getheight()); i++) {
         for(int j = 0; j < (wrapper->pic.getwidth()); j++) {
@@ -255,6 +253,6 @@ void PicLibrary::blur(string filename) {
         }
     }
     wrapper->pic.setimage(newPic.getimage());
-    loadedPictures[filename]->mtex.unlock();
+    wrapper->mtex.unlock();
 }
 
