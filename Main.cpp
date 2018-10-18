@@ -145,10 +145,6 @@ int main(int argc, char ** argv)
 
     }
     lib.joinAllThreads();
-
-
-
-
     //for_each(threadVector.begin(), threadVector.end(), [](thread &t){t.join();});
     return 0;
 
