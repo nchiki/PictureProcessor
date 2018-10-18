@@ -1,16 +1,16 @@
 #include <iostream>
-#include <limits>
 
 #include "Colour.hpp"
 #include "Utils.hpp"
 #include "Picture.hpp"
 #include "PicLibrary.hpp"
+#include <thread>
 
 using namespace std;
 
-int main(int argc, char **argv) {
 
-    //loads all needed pictures
+int main(int argc, char ** argv)
+{
     PicLibrary lib;
 
     for ( int i = 1 ; argv[i] != NULL; ++i)
@@ -30,76 +30,128 @@ int main(int argc, char **argv) {
         lib.loadpicture(argv[i], name);
     }
 
-
-    string cmd;
-    string name;
-    string path;
+    string command, name, filepath;
     int angle;
     char plane;
 
-    while (cin >> cmd && cmd != "exit") {
 
-        if (cmd == "liststore") {
+
+    while ( cin >> command && command != "exit")
+    {
+        if (command == "liststore")
+        {
+
             lib.print_picturestore();
         }
-        if (cmd == "load") {
-            cin >> path >> name;
-            lib.loadpicture(path, name);
+
+        if (command == "load")
+        {
+            cin >> filepath >> name;
+            lib.loadpicture(filepath,name);
+            // t1 = thread(&PicLibrary::loadpicture, &lib, filepath, name);
+            //threadVector.emplace_back(&PicLibrary::loadpicture, &lib, filepath, name);
         }
-        if (cmd == "unload") {
+
+        if (command == "unload")
+        {
             cin >> name;
             lib.joinPicThreads(name);
             lib.unloadpicture(name);
+            //threadVector.emplace_back(thread(&PicLibrary::unloadpicture, &lib, name));
         }
-        if (cmd == "invert") {
-            cin >> name;
-            if(lib.checkMapforFile(name)) {
-                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::invert, &lib, name));
-            }
-        }
-        if (cmd == "save") {
-            cin >> name >> path;
-            lib.savepicture(name, path);
+
+        if (command == "save")
+        {
+            cin >> name >> filepath;
             lib.joinPicThreads(name);
+            lib.savepicture(name,filepath);
+            //threadVector.emplace_back(thread(&PicLibrary::savepicture, &lib, name, filepath));
         }
-        if (cmd == "display") {
+
+        if (command == "display")
+        {
             cin >> name;
             lib.joinPicThreads(name);
             lib.display(name);
+            //threadVector.emplace_back(thread(&PicLibrary::display, &lib, name));
         }
-        if (cmd == "rotate") {
+
+        if (command == "grayscale")
+        {
+            cin >> name;
+            if(lib.checkIfExists(name)) {
+                auto something = lib.getWrap(name);
+                something->_threads.push_back(thread(&PicLibrary::grayscale, &lib, name));
+                // lib.grayscale(name);
+                //threadVector.emplace_back(thread(&PicLibrary::grayscale, &lib, name));
+            }
+        }
+
+        if (command == "invert")
+        {
+            cin >> name;
+            if(lib.checkIfExists(name)) {
+                auto something = lib.getWrap(name);
+                something->_threads.push_back(thread(&PicLibrary::invert, &lib, name));
+                // t = new thread(&PicLibrary::invert, &lib, name);
+            }
+            // lib.invert(name);
+            //threadVector.emplace_back(thread(&PicLibrary::invert, &lib, name));
+        }
+
+        if (command == "rotate")
+        {
             cin >> angle >> name;
-            if(lib.checkMapforFile(name)) {
-                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::rotate, &lib, angle, name));
+            if (lib.checkIfExists(name)) {
+                auto something = lib.getWrap(name);
+                something->_threads.push_back(thread(&PicLibrary::rotate, &lib, angle, name));
+
+                // lib.rotate(angle, name);
             }
+            //threadVector.emplace_back(thread(&PicLibrary::rotate, &lib, angle, name));
         }
-        if (cmd == "grayscale"){
-            cin >> name;
-            if(lib.checkMapforFile(name)) {
-                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::grayscale, &lib, name));
-            }
-        }
-        if (cmd == "flip") {
+
+        if (command == "flip")
+        {
             cin >> plane >> name;
-            if(lib.checkMapforFile(name)) {
-                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::flipVH, &lib, plane, name));
+            if(lib.checkIfExists(name)) {
+                auto something = lib.getWrap(name);
+                something->_threads.push_back(thread(&PicLibrary::flipVH, &lib, plane, name));
+                // lib.flipVH(plane, name);
+                //threadVector.emplace_back(thread(&PicLibrary::flipVH, &lib, plane, name));
             }
+
         }
-        if (cmd == "blur") {
+
+        if (command == "blur")
+        {
             cin >> name;
-            if(lib.checkMapforFile(name)) {
-                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur, &lib, name));
+            if (lib.checkIfExists(name)) {
+                auto something = lib.getWrap(name);
+                something->_threads.push_back(thread(&PicLibrary::blur, &lib, name));
+                // lib.blur(name);
+                //threadVector.emplace_back(thread(&PicLibrary::blur, &lib, name));
             }
         }
-        if(cin.peek() == EOF) {
+        if ( cin.peek() == EOF)
+        {
             break;
         }
-        else {
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        else
+        {
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
         }
+
+
     }
     lib.joinAllThreads();
+
+
+
+
+    //for_each(threadVector.begin(), threadVector.end(), [](thread &t){t.join();});
     return 0;
+
 }
 
 

@@ -9,9 +9,9 @@
 class PicWrapper {
 
 public:
-    Picture pic;
-    std::mutex mtex;
-    vector<thread> threads;
+    Picture _pic;
+    std::mutex _mtx;
+    vector<thread> _threads;
     PicWrapper(Picture* pic) {};
     ~PicWrapper() {};
 
