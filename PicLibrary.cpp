@@ -9,11 +9,11 @@
 
 
 void PicLibrary::joinPicThreads(string filename) {
-    PicWrapper* pic = loadedPictures[filename];
-    for(auto t : pic->threads) {
-        t.join(); 
+    PicWrapper* wrapper = loadedPictures[filename];
+    for(std::vector<thread>::size_type i = 0; i != wrapper->threads.size(); i++) {
+        wrapper->threads[i].join(); 
     }
-    pic->threads.clear();
+    wrapper->threads.clear();
 }
 
 void PicLibrary::joinAllThreads() {
