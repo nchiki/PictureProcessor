@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
     int angle;
     char plane;
 
-    while (cin >> cmd && cmd != "exit" && cin != EOF) {
+    while (cin >> cmd && cmd != "exit" && cmd != EOF) {
 
         if (cmd == "liststore") {
             lib.print_picturestore();
