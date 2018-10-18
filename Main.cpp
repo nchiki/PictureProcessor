@@ -20,7 +20,6 @@ int main(int argc, char **argv) {
         } else {
             name = &argv[i][start];
         }
-
         lib.loadpicture(argv[i], name);
     }
 
@@ -52,8 +51,8 @@ int main(int argc, char **argv) {
         }
         if (cmd == "save") {
             cin >> name >> path;
-            lib.joinPicThreads(name);
             lib.savepicture(name, path);
+            lib.joinPicThreads(name);
         }
         if (cmd == "display") {
             cin >> name;
@@ -83,12 +82,13 @@ int main(int argc, char **argv) {
             if(lib.checkMapforFile(name)) {
                 lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur, &lib, name));
             }
-        } else {
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
 
         if(cin.peek() == EOF) {
-            break; 
+            break;
+        }
+        else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     }
     lib.joinAllThreads();

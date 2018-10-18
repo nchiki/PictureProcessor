@@ -6,8 +6,6 @@
 //NOCH SEQUENTIAL SACHEN HINZUFÜGEN UND DANN AUSKOMMENTIEREN UND TESTEN
 //ANDERE DATEI MIT ERKLÄRUNGEN HINZUFÜGEN
 
-
-
 void PicLibrary::joinPicThreads(string filename) {
     if (checkMapforFile(filename))
     {
@@ -54,7 +52,7 @@ void PicLibrary::print_picturestore()
     }
     std::sort(keys.begin(), keys.end());
     for(auto &it : keys) {
-        cout << it << endl;
+        cout << it << std::flush << endl;
     }
 }
 
@@ -130,9 +128,8 @@ void PicLibrary::display(string filename) {
 }
 
 void PicLibrary::invert(string filename) {
-    loadedPictures[filename]->mtex.lock();
-    if(loadedPictures.find(filename) != loadedPictures.end()) {
-        auto wrapper = loadedPictures[filename];
+    auto wrapper = loadedPictures[filename];
+    wrapper->mtex.lock();
         for(int i = 0; i < wrapper->pic.getheight(); i++) {
             for(int j = 0; j < wrapper->pic.getwidth(); j++) {
                 Colour temp = wrapper->pic.getpixel(j, i);
@@ -140,15 +137,12 @@ void PicLibrary::invert(string filename) {
                 wrapper->pic.setpixel(j, i, newC);
             }
         }
-    } else {
-        cout << filename << " is not in the picture library's internal picture store" << endl;
-    }
-    loadedPictures[filename]->mtex.unlock();
+    wrapper->mtex.unlock();
 }
 
 void PicLibrary::grayscale(string key) {
     auto wrapper = loadedPictures[key];
-    loadedPictures[key]->mtex.lock();
+    wrapper->mtex.lock();
     for(int i = 0; i < wrapper->pic.getwidth(); i++) {
         for(int j = 0; j < wrapper->pic.getheight(); j++) {
             Colour temp = wrapper->pic.getpixel(i, j);
@@ -169,7 +163,7 @@ void PicLibrary::flipVH(char plane, string filename) {
 void PicLibrary::flipV(string filename) {
     auto wrapper = loadedPictures[filename];
     loadedPictures[filename]->mtex.lock();
-    Picture newPic = Picture(wrapper->pic.getwidth(), wrapper->pic.getheight());
+    Picture newPic (wrapper->pic.getwidth(), wrapper->pic.getheight());
     for (int i = 0; i < wrapper->pic.getheight(); i++) {
         for (int j = 0; j < wrapper->pic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(wrapper->pic.getpixel(j, ((wrapper->pic.getheight() - 1) - i))));
@@ -182,7 +176,7 @@ void PicLibrary::flipV(string filename) {
 void PicLibrary::flipH(string filename) {
     auto wrapper = loadedPictures[filename];
     wrapper->mtex.lock();
-    Picture newPic = Picture(wrapper->pic.getwidth(), wrapper->pic.getheight());
+    Picture newPic (wrapper->pic.getwidth(), wrapper->pic.getheight());
     for (int i = 0; i < wrapper->pic.getheight(); i++) {
         for (int j = 0; j < wrapper->pic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(wrapper->pic.getpixel(((wrapper->pic.getwidth() - 1) - j), i)));
@@ -231,7 +225,7 @@ void PicLibrary::rotate90(string filename) {
 void PicLibrary::blur(string filename) {
     auto wrapper = loadedPictures[filename];
     wrapper->mtex.lock();
-    Picture newPic = Picture(wrapper->pic.getwidth(), wrapper->pic.getheight());
+    Picture newPic(wrapper->pic.getwidth(), wrapper->pic.getheight());
     for(int i = 0; i < (wrapper->pic.getheight()); i++) {
         for(int j = 0; j < (wrapper->pic.getwidth()); j++) {
             if((i != 0) && (j != 0) && (i != (wrapper->pic.getheight() - 1)) && (j != (wrapper->pic.getwidth() - 1))) {
