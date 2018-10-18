@@ -10,8 +10,8 @@
 
 void PicLibrary::joinPicThreads(string filename) {
     PicWrapper* pic = loadedPictures[filename];
-    for(thread t : pic->threads) {
-        t.join();
+    for(auto t : pic->threads) {
+        t.join(); 
     }
     pic->threads.clear();
 }
