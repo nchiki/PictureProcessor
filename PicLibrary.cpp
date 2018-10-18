@@ -9,38 +9,33 @@
 
 
 void PicLibrary::joinPicThreads(string filename) {
-    PicWrapper* wrapper = loadedPictures[filename];
-    for(std::vector<thread>::size_type i = 0; i != wrapper->threads.size(); i++) {
-        wrapper->threads[i].join();
+    if (checkMapforFile(filename))
+    {
+        std::for_each(loadedPictures[filename]->threads.begin(), loadedPictures[filename]->threads.end(), [](thread &t){t.join();});
+        loadedPictures[filename]->threads.clear();
     }
-    wrapper->threads.clear();
 }
 
 void PicLibrary::joinAllThreads() {
-    for (unordered_map<std::string, PicWrapper *>::const_iterator it = loadedPictures.begin();
-         it != loadedPictures.end(); ++it) {
-        joinPicThreads(it->first);
+    for (auto i : loadedPictures )
+    {
+        std::for_each(i.second->threads.begin(), i.second->threads.end(), [](thread &t){t.join();});
+
     }
+    for (auto i : loadedPictures )
+    {
+        i.second->threads.clear();
+    }
+
+
 }
 
 bool PicLibrary::checkMapforFile(string filename) {
-    for (unordered_map<std::string, PicWrapper *>::const_iterator it = loadedPictures.begin();
-         it != loadedPictures.end(); ++it) {
-        if(it->first == filename) {
-            return true;
-        }
-    }
-    return false; 
+    return (loadedPictures.find(filename) != loadedPictures.end());
 }
 
 PicWrapper* PicLibrary::getWrapper(string filename) {
-    for (unordered_map<std::string, PicWrapper *>::const_iterator it = loadedPictures.begin();
-         it != loadedPictures.end(); ++it) {
-        if(it->first == filename) {
-            return it->second;
-        }
-    }
-    return NULL;
+    return loadedPictures[filename];
 }
 
 inline bool PicLibrary::isJPG(string const &filename, string const &ending)
