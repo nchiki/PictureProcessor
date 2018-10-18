@@ -2,10 +2,6 @@
 #include "PicLibrary.hpp"
 #include "Colour.hpp"
 
-
-//NOCH SEQUENTIAL SACHEN HINZUFGEN UND DANN AUSKOMMENTIEREN UND TESTEN
-//ANDERE DATEI MIT ERKLRUNGEN HINZUFGEN
-
 void PicLibrary::joinPicThreads(string filename) {
     if (checkMapforFile(filename))
     {
@@ -80,10 +76,12 @@ void PicLibrary::loadpicture(string path, string filename)
 void PicLibrary::loadpicture(string path, string filename)
 {
     string jpg = ".jpg";
+
     if(!PicLibrary::isJPG(path, jpg)) {
         cerr << "Picture is not a .jpg file" << endl;
     }
-    if(loadedPictures.end() == loadedPictures.find(filename)) {
+
+    if(loadedPictures.find(filename) == loadedPictures.end()) {
         Picture* toAdd = new Picture(path);
         if(toAdd->getheight() != 0) {
             PicWrapper* toA = new PicWrapper(toAdd);
@@ -130,20 +128,19 @@ void PicLibrary::display(string filename) {
 
 void PicLibrary::invert(string filename) {
     auto wrapper = loadedPictures[filename];
-    wrapper->mtex.lock();
-        for(int i = 0; i < wrapper->pic.getheight(); i++) {
+    std::lock_guard<std::mutex> lock(wrapper->mtex);
+    for(int i = 0; i < wrapper->pic.getheight(); i++) {
             for(int j = 0; j < wrapper->pic.getwidth(); j++) {
                 Colour temp = wrapper->pic.getpixel(j, i);
                 Colour newC = Colour(255-temp.getred(), 255-temp.getgreen(), 255-temp.getblue());
                 wrapper->pic.setpixel(j, i, newC);
             }
         }
-    wrapper->mtex.unlock();
 }
 
 void PicLibrary::grayscale(string key) {
     auto wrapper = loadedPictures[key];
-    wrapper->mtex.lock();
+    std::lock_guard<std::mutex> lock(wrapper->mtex);
     for(int i = 0; i < wrapper->pic.getwidth(); i++) {
         for(int j = 0; j < wrapper->pic.getheight(); j++) {
             Colour temp = wrapper->pic.getpixel(i, j);
@@ -151,7 +148,6 @@ void PicLibrary::grayscale(string key) {
             wrapper->pic.setpixel(i, j, Colour(average, average, average));
         }
     }
-    loadedPictures[key]->mtex.unlock();
 }
 
 void PicLibrary::flipVH(char plane, string filename) {
