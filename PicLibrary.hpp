@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include "Picture.hpp"
 #include "Utils.hpp"
-#include "PicWrapper.h"
+#include "PicWrapper.hpp"
 
 
 class PicLibrary {

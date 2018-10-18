@@ -14,4 +14,4 @@ add_executable(cpp_pic_proc_nc1517
         Picture.cpp
         Picture.hpp
         Utils.cpp
-        Utils.hpp PicWrapper.cpp PicWrapper.h)
+        Utils.hpp PicWrapper.cpp PicWrapper.hpp)

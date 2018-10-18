@@ -82,10 +82,11 @@ void PicLibrary::loadpicture(string path, string filename)
     string jpg = ".jpg";
     if(!PicLibrary::isJPG(path, jpg)) {
         cerr << "Picture is not a .jpg file" << endl;
-    } else if(loadedPictures.end() == loadedPictures.find(filename)) {
-        Picture toAdd = Picture(path);
-        if(toAdd.getheight() != 0) {
-            PicWrapper* toA = new PicWrapper(&toAdd);
+    }
+    if(loadedPictures.end() == loadedPictures.find(filename)) {
+        Picture* toAdd = new Picture(path);
+        if(toAdd->getheight() != 0) {
+            PicWrapper* toA = new PicWrapper(toAdd);
             loadedPictures.insert({filename, toA});
             cout << filename << " saved!" << endl;
         } else {
