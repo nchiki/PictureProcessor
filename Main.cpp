@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
     int angle;
     char plane;
 
-    while (cin >> cmd && cmd != "exit" && cin.peek() != EOF) {
+    while (cin >> cmd && cmd != "exit") {
 
         if (cmd == "liststore") {
             lib.print_picturestore();
@@ -85,6 +85,10 @@ int main(int argc, char **argv) {
             }
         } else {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+
+        if(cin.peek() == EOF) {
+            break; 
         }
     }
     lib.joinAllThreads();
