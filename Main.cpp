@@ -33,21 +33,16 @@ int main(int argc, char **argv) {
     while (cin >> cmd && cmd != "exit" && cin.peek() != EOF) {
 
         if (cmd == "liststore") {
-            lib.joinAllThreads();
             lib.print_picturestore();
         }
         if (cmd == "load") {
             cin >> path >> name;
-            if(lib.checkMapforFile(name)) {
-                lib.loadpicture(path, name);
-            }
+            lib.loadpicture(path, name);
         }
         if (cmd == "unload") {
             cin >> name;
-            if(lib.checkMapforFile(name)) {
-                lib.joinPicThreads(name);
-                lib.unloadpicture(name);
-            }
+            lib.joinPicThreads(name);
+            lib.unloadpicture(name);
         }
         if (cmd == "invert") {
             cin >> name;
@@ -90,10 +85,6 @@ int main(int argc, char **argv) {
             }
         } else {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-
-        if(cin.peek() == EOF) {
-            break;
         }
     }
     lib.joinAllThreads();
