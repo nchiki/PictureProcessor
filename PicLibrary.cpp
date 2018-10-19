@@ -316,5 +316,47 @@ void PicLibrary::blur_column(string filename) {
     std::for_each(threads.begin(), threads.end(), [](thread &t) { t.join(); });
     wrapper->pic.setimage(newPic.getimage());
 }
- */
 
+
+ PIXEL-BY-PIXEL IMPLEMENTATION
+
+void pixel_blurHelper(Picture* originalPic, Picture* newPic) {
+    auto wrapper = loadedPictures[filename];
+    Picture newPic(wrapper->pic.getwidth(), wrapper->pic.getheight());
+    for (int i = 0; i < (wrapper->pic.getheight()); i++) {
+        for (int j = 0; j < (wrapper->pic.getwidth()); j++) {
+            if ((i != 0) && (j != 0) && (i != (wrapper->pic.getheight() - 1)) && (j != (wrapper->pic.getwidth() - 1))) {
+                int red = 0;
+                int blue = 0;
+                int green = 0;
+                for (int k = (i - 1); k <= (i + 1); ++k) {
+                    for (int l = (j - 1); l <= (j + 1); ++l) {
+                        Colour colour = wrapper->pic.getpixel(l, k);
+                        red += colour.getred();
+                        green += colour.getgreen();
+                        blue += colour.getblue();
+                    }
+                }
+                newPic.setpixel(j, i, Colour(red / 9, green / 9, blue / 9));
+            } else {
+                newPic.setpixel(j, i, wrapper->pic.getpixel(j, i));
+            }
+        }
+    }
+    wrapper->pic.setimage(newPic.getimage());
+}
+
+
+void PicLibrary::pixel_blur(string filename) {
+    auto wrapper = loadedPictures[filename];
+    Picture originalPic = wrapper->pic;
+    Picture newPic = Picture(originalPic.getwidth(), originalPic.getheight());
+    vector<thread> threads;
+    for (int numberOfPixels = 0; numberOfPixels < (originalPic.getwidth() * originalPic.getheight()); numberOfPixels++) {
+        threads.push_back(thread(blur_rowHelper, numberOfPixels, &originalPic, &newPic));
+    }
+    std::for_each(threads.begin(), threads.end(), [](thread &t) { t.join(); });
+    wrapper->pic.setimage(newPic.getimage());
+}
+
+*/
