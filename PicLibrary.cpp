@@ -61,7 +61,7 @@ void PicLibrary::loadpicture(string path, string filename) {
             PicWrapper *toA = new PicWrapper(toAdd);
 
             loadedPictures.insert({filename, toA});
-            cout << filename << " saved!" << endl;
+            cout << filename << " loaded!" << endl;
         } else {
             cout << path << " doesn't exist!" << endl;
         }
@@ -156,6 +156,7 @@ void PicLibrary::flipV(string filename) {
         }
     }
     wrapper->pic.setimage(newPic.getimage());
+    cout << filename << "has been flipped vertically!" << endl;
     wrapper->mtex.unlock();
 }
 
@@ -169,6 +170,7 @@ void PicLibrary::flipH(string filename) {
         }
     }
     wrapper->pic.setimage(newPic.getimage());
+    cout << filename << "has been flipped horizontally!" << endl;
     wrapper->mtex.unlock();
 }
 
@@ -240,6 +242,7 @@ void PicLibrary::blur(string filename) {
         }
     }
     wrapper->pic.setimage(newPic.getimage());
+    cout << filename << "has been blurred!" << endl;
     wrapper->mtex.unlock();
 }
 
