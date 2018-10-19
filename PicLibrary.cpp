@@ -18,10 +18,6 @@ void PicLibrary::joinAllThreads() {
     for (auto i : loadedPictures )
     {
         std::for_each(i.second->threads.begin(), i.second->threads.end(), [](thread &t){t.join();});
-
-    }
-    for (auto i : loadedPictures )
-    {
         i.second->threads.clear();
     }
 }

@@ -35,7 +35,6 @@ int main(int argc, char **argv) {
         }
         if (cmd == "load") {
             cin >> path >> name;
-            cout << path << name << endl;
             lib.loadpicture(path, name);
         }
         if (cmd == "unload") {
@@ -51,8 +50,8 @@ int main(int argc, char **argv) {
         }
         if (cmd == "save") {
             cin >> name >> path;
-            lib.savepicture(name, path);
             lib.joinPicThreads(name);
+            lib.savepicture(name, path);
         }
         if (cmd == "display") {
             cin >> name;
