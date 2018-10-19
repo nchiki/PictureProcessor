@@ -1,6 +1,7 @@
 #include <algorithm>
 #include "PicLibrary.hpp"
 #include "Colour.hpp"
+#include "PicWrapper.hpp"
 
 
 //NOCH SEQUENTIAL SACHEN HINZUFÜGEN UND DANN AUSKOMMENTIEREN UND TESTEN

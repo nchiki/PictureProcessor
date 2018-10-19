@@ -86,39 +86,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/Colour.cpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/Colour.hpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/Main.cpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/PicLibrary.cpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/PicLibrary.hpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/PicWrapper.cpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/PicWrapper.hpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/Picture.cpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/Picture.hpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/Utils.cpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/Utils.hpp">
-			<Option target="cpp_pic_proc_nc1517"/>
-		</Unit>
 		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

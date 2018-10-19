@@ -48,10 +48,4 @@ void Picture::setimage(Mat cpyimg){
     img = imgio.copyimage(cpyimg);
 }
 
-#include "Picture.hpp"
-
-PicWrapper::PicWrapper(Picture *pic) {
-    this->pic = *pic;
-}
-
 

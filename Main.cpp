@@ -1,6 +1,5 @@
 #include <iostream>
 #include <limits>
-
 #include "Colour.hpp"
 #include "Utils.hpp"
 #include "Picture.hpp"

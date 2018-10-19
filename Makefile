@@ -10,7 +10,7 @@ Picture.o: Utils.hpp Picture.hpp Picture.cpp
 
 PicLibrary.o: Utils.hpp PicLibrary.hpp PicLibrary.cpp
 
-PicWrapper.o: Picture.hpp 
+PicWrapper.o: Picture.hpp PicWrapper.cpp PicWrapper.hpp
 
 Main.o: Main.cpp Utils.hpp Colour.hpp Picture.hpp PicLibrary.hpp
 

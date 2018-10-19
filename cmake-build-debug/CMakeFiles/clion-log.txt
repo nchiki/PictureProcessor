@@ -1,4 +1,15 @@
 /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/nahida/cpp_pic_proc_nc1517
 -- Configuring done
+CMake Error at CMakeLists.txt:8 (add_executable):
+  Cannot find source file:
+
+    PicWrapper.hpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+
+
+CMake Error: CMake can not determine linker language for target: cpp_pic_proc_nc1517
+CMake Error: Cannot determine link language for target "cpp_pic_proc_nc1517".
 -- Generating done
 -- Build files have been written to: /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug
