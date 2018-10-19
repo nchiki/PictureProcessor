@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
 
     //loads all needed pictures
     for (int i = 1; argv[i] != NULL; ++i) {
-        size_t start = string(argv[i]).rfind("/")+1;
+        size_t start = string(argv[i]).rfind("/");
         char *name;
         if (start == string::npos) {
             name = argv[i];
