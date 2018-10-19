@@ -104,7 +104,7 @@
 		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/PicWrapper.cpp">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
-		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/PicWrapper.hpp">
+		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/PicWrapper.h">
 			<Option target="cpp_pic_proc_nc1517"/>
 		</Unit>
 		<Unit filename="/home/nahida/cpp_pic_proc_nc1517/Picture.cpp">
