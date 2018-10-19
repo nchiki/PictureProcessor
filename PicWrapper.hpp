@@ -1,5 +1,5 @@
-#ifndef CPP_PIC_PROC_NC1517_PICWRAPPER_H
-#define CPP_PIC_PROC_NC1517_PICWRAPPER_H
+#ifndef PICWRAPPER_H
+#define PICWRAPPER_H
 
 
 #include <mutex>
