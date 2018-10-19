@@ -1,4 +1,3 @@
-#endif
 
 #ifndef PICWRAPPER_H
 #define PICWRAPPER_H
