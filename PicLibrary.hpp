@@ -33,6 +33,7 @@ class PicLibrary {
   void flipH(string filename);
   void joinPicThreads(string filename);
   void joinAllThreads();
+  Colour avg(Colour c);
 
 
       // picture transformation routines

@@ -10,7 +10,7 @@
 class PicWrapper {
 
 public:
-    Picture* pic;
+    Picture pic;
     std::mutex mtex;
     vector<thread> threads;
     PicWrapper(Picture* pic);
