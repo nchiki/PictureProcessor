@@ -1,4 +1,4 @@
-# Install script for directory: /home/nahida/cpp_pic_proc_nc1517
+# Install script for directory: /homes/nc1517/cpp_pic_proc_nc1517
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/nahida/cpp_pic_proc_nc1517/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

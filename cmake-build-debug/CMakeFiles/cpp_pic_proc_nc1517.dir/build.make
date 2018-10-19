@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
+RM = /homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nahida/cpp_pic_proc_nc1517
+CMAKE_SOURCE_DIR = /homes/nc1517/cpp_pic_proc_nc1517
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug
+CMAKE_BINARY_DIR = /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cpp_pic_proc_nc1517.dir/depend.make
@@ -66,6 +66,6 @@ CMakeFiles/cpp_pic_proc_nc1517.dir/clean:
 .PHONY : CMakeFiles/cpp_pic_proc_nc1517.dir/clean
 
 CMakeFiles/cpp_pic_proc_nc1517.dir/depend:
-	cd /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nahida/cpp_pic_proc_nc1517 /home/nahida/cpp_pic_proc_nc1517 /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/DependInfo.cmake --color=$(COLOR)
+	cd /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /homes/nc1517/cpp_pic_proc_nc1517 /homes/nc1517/cpp_pic_proc_nc1517 /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/cpp_pic_proc_nc1517.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cpp_pic_proc_nc1517.dir/depend
 

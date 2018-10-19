@@ -35,6 +35,7 @@ int main(int argc, char **argv) {
         }
         if (cmd == "load") {
             cin >> path >> name;
+            cout << path << name << endl;
             lib.loadpicture(path, name);
         }
         if (cmd == "unload") {

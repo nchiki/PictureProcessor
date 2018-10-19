@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
+RM = /homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nahida/cpp_pic_proc_nc1517
+CMAKE_SOURCE_DIR = /homes/nc1517/cpp_pic_proc_nc1517
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug
+CMAKE_BINARY_DIR = /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/nahida/clion-2018.1.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/homes/nc1517/Downloads/clion-2018.1.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nahida/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /homes/nc1517/cpp_pic_proc_nc1517/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

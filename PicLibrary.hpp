@@ -2,7 +2,6 @@
 #define PICLIB_H
 
 #include <unordered_map>
-#include "Picture.hpp"
 #include "Utils.hpp"
 #include "PicWrapper.hpp"
 

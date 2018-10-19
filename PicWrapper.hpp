@@ -5,16 +5,16 @@
 
 #include <mutex>
 #include <thread>
+#include "Picture.hpp"
 
 class PicWrapper {
 
 public:
-    Picture pic;
+    Picture* pic;
     std::mutex mtex;
     vector<thread> threads;
-    PicWrapper(Picture* pic) {};
+    PicWrapper(Picture* pic);
     ~PicWrapper() {};
-
 };
 
 #endif //PICWRAPPER_H
