@@ -6,6 +6,8 @@
 //NOCH SEQUENTIAL SACHEN HINZUFÜGEN UND DANN AUSKOMMENTIEREN UND TESTEN
 //ANDERE DATEI MIT ERKLÄRUNGEN HINZUFÜGEN
 
+
+
 void PicLibrary::joinPicThreads(string filename) {
     if (checkMapforFile(filename))
     {
@@ -262,5 +264,40 @@ void PicLibrary::blur(string filename) {
     }
     wrapper->pic.setimage(newPic.getimage());
     wrapper->mtex.unlock();
+}
+
+static void blur_rowHelper(int y, Picture* originalPic, Picture* newPic) {
+    for(int x = 0; x < originalPic->getwidth(); x++) {
+        if ((y != 0) && (x != 0) && (y != (originalPic->getheight() - 1)) && (x != (originalPic->getwidth() - 1))) {
+            int red = 0;
+            int blue = 0;
+            int green = 0;
+            for (int i = (y - 1); i <= (i + 1); ++i) {
+                for (int j = (x - 1); j <= (x + 1); ++j) {
+                    Colour colour = originalPic->getpixel(j, i);
+                    red += colour.getred();
+                    green += colour.getgreen();
+                    blue += colour.getblue();
+                }
+            }
+            newPic->setpixel(x, y, Colour(red / 9, green / 9, blue / 9));
+        } else {
+            newPic->setpixel(x, y, originalPic->getpixel(x, y));
+        }
+    }
+}
+
+//create thread in main that calls all of this and put it in pic threads and let that thread call blur row and then join that one thread in main again
+
+void PicLibrary::blur_row(string filename) {
+    auto wrapper = loadedPictures[filename];
+    Picture originalPic = wrapper->pic;
+    Picture newPic = Picture(originalPic.getwidth(), originalPic.getheight());
+    vector<thread> threads;
+    for(int numberOfRows = 0; numberOfRows < originalPic.getheight(); numberOfRows++) {
+        threads.push_back(thread(blur_rowHelper, numberOfRows, &originalPic, &newPic));
+    }
+        std::for_each(threads.begin(), threads.end(), [](thread &t){t.join();});
+        wrapper->pic.setimage(newPic.getimage());
 }
 

@@ -79,7 +79,8 @@ int main(int argc, char **argv) {
         if (cmd == "blur") {
             cin >> name;
             if(lib.checkMapforFile(name)) {
-                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur, &lib, name));
+               // lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur, &lib, name));
+                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur_row, &lib, name));
             }
         }
         if(cin.peek() == EOF) {

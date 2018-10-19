@@ -42,6 +42,8 @@ class PicLibrary {
   void rotate(int angle, string filename);
   void flipVH(char plane, string filename);
   void blur(string filename);
+  void blur_row(string filename);
+
 };
 
 #endif
