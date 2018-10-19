@@ -114,7 +114,7 @@ void PicLibrary::savepicture(string filename, string path) {
         util.saveimage(wrapper->pic.getimage(), path);
         cout << filename << " has been saved!" << endl;
     } else {
-        cerr << filename << " does not exist in the picture library's internal picture store!" << endl;
+        cout << filename << " does not exist in the picture library's internal picture store!" << endl;
     }
 }
 
