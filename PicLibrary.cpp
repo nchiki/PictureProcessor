@@ -203,6 +203,7 @@ void PicLibrary::flipH(string filename) {
     wrapper->mtex.unlock();
 }
 
+
 void PicLibrary::rotate(int angle, string filename) {
     switch(angle) {
         case(90): rotate90(filename); break;
@@ -231,7 +232,7 @@ void PicLibrary::rotate90(string filename) {
 
     for(int x = 0; x < width; x++){
         for(int y = 0; y < height; y++){
-            newPic.setpixel(y, x, wrapper->pic.getpixel(x, (wrapper->pic.getheight() - y - 1)));
+            newPic.setpixel(y, x, wrapper->pic.getpixel(x, wrapper->pic.getheight() - y - 1));
         }
     }
     wrapper->pic.setimage(newPic.getimage());
