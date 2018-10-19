@@ -1,4 +1,3 @@
-
 #ifndef PICWRAPPER_H
 #define PICWRAPPER_H
 
@@ -13,7 +12,9 @@ public:
     Picture pic;
     std::mutex mtex;
     vector<thread> threads;
-    PicWrapper(Picture* pic);
+
+    PicWrapper(Picture *pic);
+
     ~PicWrapper() {};
 };
 

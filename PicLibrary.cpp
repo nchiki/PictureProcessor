@@ -3,93 +3,63 @@
 #include "Colour.hpp"
 
 
-//NOCH SEQUENTIAL SACHEN HINZUFÜGEN UND DANN AUSKOMMENTIEREN UND TESTEN
-//ANDERE DATEI MIT ERKLÄRUNGEN HINZUFÜGEN
-
-
-
 void PicLibrary::joinPicThreads(string filename) {
-    if (checkMapforFile(filename))
-    {
-        std::for_each(loadedPictures[filename]->threads.begin(), loadedPictures[filename]->threads.end(), [](thread &t){t.join();});
+    if (checkMapforFile(filename)) {
+        std::for_each(loadedPictures[filename]->threads.begin(), loadedPictures[filename]->threads.end(),
+                      [](thread &thr) { thr.join(); });
         loadedPictures[filename]->threads.clear();
     }
 }
 
 void PicLibrary::joinAllThreads() {
-    for (auto i : loadedPictures )
-    {
-        std::for_each(i.second->threads.begin(), i.second->threads.end(), [](thread &t){t.join();});
-        i.second->threads.clear();
+    for (auto item : loadedPictures) {
+        std::for_each(item.second->threads.begin(), item.second->threads.end(), [](thread &thr) { thr.join(); });
+        item.second->threads.clear();
     }
 }
 
 bool PicLibrary::checkMapforFile(string filename) {
-    return (loadedPictures.find(filename) != loadedPictures.end());
+    return loadedPictures.find(filename) != loadedPictures.end();
 }
 
-PicWrapper* PicLibrary::getWrapper(string filename) {
-    return loadedPictures[filename];
+PicWrapper *PicLibrary::getWrapper(string filename) {
+    if (checkMapforFile(filename)) {
+        return loadedPictures[filename];
+    }
 }
 
-inline bool PicLibrary::isJPG(string const &filename, string const &ending)
-{
-    if(ending.size() > filename.size()) {
+inline bool PicLibrary::isJPG(string const &filename, string const &ending) {
+    if (ending.size() > filename.size()) {
         return false;
     } else {
         return std::equal(ending.rbegin(), ending.rend(), filename.rbegin());
     }
 }
 
-void PicLibrary::print_picturestore()
-{
+void PicLibrary::print_picturestore() {
     vector<string> keys;
     keys.reserve(loadedPictures.size());
-    for(auto &it : loadedPictures) {
-        keys.push_back(it.first);
+    for (auto &item : loadedPictures) {
+        keys.push_back(item.first);
     }
     std::sort(keys.begin(), keys.end());
-    for(auto &it : keys) {
-        cout << it << std::flush << endl;
+    for (auto &item : keys) {
+        cout << item << endl;
     }
 }
 
-/* SEQUENTIAL IMPLEMENTATION
-void PicLibrary::loadpicture(string path, string filename)
-{
-    string jpg = ".jpg";
-    if(!PicLibrary::isJPG(path, jpg)) {
-        cerr << "Picture is not a .jpg file" << endl;
-    } else if(loadedPictures.end() == loadedPictures.find(filename)) {
-        Picture toAdd = Picture(path);
-        if(toAdd.getheight() != 0) {
-            loadedPictures.insert({filename, Picture(path)});
-            cout << filename << " saved!" << endl;
-        } else {
-            cout << path << " doesn't exist!" << endl;
-        }
-    } else {
-        cerr << "Picture already exists" << endl;
-    }
-}
-*/
 
-//MODIFIED
-void PicLibrary::loadpicture(string path, string filename)
-{
-    /*
+void PicLibrary::loadpicture(string path, string filename) {
     string jpg = ".jpg";
-    if(!PicLibrary::isJPG(path, jpg)) {
+    if (!PicLibrary::isJPG(path, jpg)) {
         cerr << "Picture is not a .jpg file" << endl;
-    } */
-    if(loadedPictures.end() == loadedPictures.find(filename)) {
+    }
+    if (loadedPictures.end() == loadedPictures.find(filename)) {
         cout << path << endl;
-        Picture* toAdd = new Picture(path);
-        if(toAdd->getheight() != 0) {
-            PicWrapper* toA = new PicWrapper(toAdd);
-            /*if(toA->pic->getheight() == 0) {
-                cout << "Picture not loaded";
-            }*/
+        Picture *toAdd = new Picture(path);
+        if (toAdd->getheight() != 0) {
+            PicWrapper *toA = new PicWrapper(toAdd);
+
             loadedPictures.insert({filename, toA});
             cout << filename << " saved!" << endl;
         } else {
@@ -100,9 +70,8 @@ void PicLibrary::loadpicture(string path, string filename)
     }
 }
 
-//SEQUENTIAL IS THE SAME
 void PicLibrary::unloadpicture(string filename) {
-    if(loadedPictures.find(filename) != loadedPictures.end()) {
+    if (loadedPictures.find(filename) != loadedPictures.end()) {
         loadedPictures.erase(filename);
         cout << filename << " successfully removed!" << endl;
     } else {
@@ -111,10 +80,10 @@ void PicLibrary::unloadpicture(string filename) {
 }
 
 void PicLibrary::savepicture(string filename, string path) {
-    if(loadedPictures.find(filename) != loadedPictures.end()) {
+    if (loadedPictures.find(filename) != loadedPictures.end()) {
         auto wrapper = loadedPictures[filename];
         Utils util;
-        if(wrapper->pic.getheight() != 0) {
+        if (wrapper->pic.getheight() != 0) {
             util.saveimage(wrapper->pic.getimage(), path);
             cout << filename << " has been saved!" << endl;
         }
@@ -124,7 +93,7 @@ void PicLibrary::savepicture(string filename, string path) {
 }
 
 void PicLibrary::display(string filename) {
-    if(loadedPictures.find(filename) != loadedPictures.end()) {
+    if (loadedPictures.find(filename) != loadedPictures.end()) {
         auto wrapper = loadedPictures[filename];
         Utils util;
         util.displayimage(wrapper->pic.getimage());
@@ -136,49 +105,51 @@ void PicLibrary::display(string filename) {
 void PicLibrary::invert(string filename) {
     auto wrapper = loadedPictures[filename];
     wrapper->mtex.lock();
-        for(int i = 0; i < wrapper->pic.getheight(); i++) {
-            for(int j = 0; j < wrapper->pic.getwidth(); j++) {
-                Colour temp = wrapper->pic.getpixel(j, i);
-                Colour newC = Colour(255-temp.getred(), 255-temp.getgreen(), 255-temp.getblue());
-                wrapper->pic.setpixel(j, i, newC);
-            }
+    for (int i = 0; i < wrapper->pic.getheight(); i++) {
+        for (int j = 0; j < wrapper->pic.getwidth(); j++) {
+            Colour temp = wrapper->pic.getpixel(j, i);
+            Colour newC = Colour(255 - temp.getred(), 255 - temp.getgreen(), 255 - temp.getblue());
+            wrapper->pic.setpixel(j, i, newC);
         }
-        cout << filename << "has been inverted" << endl;
+    }
+    cout << filename << "has been inverted" << endl;
     wrapper->mtex.unlock();
 }
 
 void PicLibrary::grayscale(string filename) {
     auto wrapper = loadedPictures[filename];
     wrapper->mtex.lock();
-    for(int i = 0; i < wrapper->pic.getwidth(); i++) {
-        for(int j = 0; j < wrapper->pic.getheight(); j++) {
-            Colour temp = wrapper->pic.getpixel(i,j);
-            wrapper->pic.setpixel(i,j,Colour((temp.getblue()+temp.getred()+temp.getgreen())/3,
-                                                 (temp.getblue()+temp.getred()+temp.getgreen())/3,(temp.getblue()+temp.getred()+temp.getgreen())/3));
+    for (int i = 0; i < wrapper->pic.getwidth(); i++) {
+        for (int j = 0; j < wrapper->pic.getheight(); j++) {
+            Colour temp = wrapper->pic.getpixel(i, j);
+            wrapper->pic.setpixel(i, j, Colour(average(temp.getblue(), temp.getred(), temp.getgreen()),
+                                               average(temp.getblue(), temp.getred(), temp.getgreen()),
+                                               average(temp.getblue(), temp.getred(), temp.getgreen())
         }
     }
     wrapper->mtex.unlock();
 }
 
+int PicLibrary::average(int blue, int red, int green) {
+    return ((blue + red + green) / 3);
+}
+
 void PicLibrary::flipVH(char plane, string filename) {
-    switch(plane) {
-        case('V'): flipV(filename); break;
-        case('H'): flipH(filename); break;
+    switch (plane) {
+        case ('V'):
+            flipV(filename);
+            break;
+        case ('H'):
+            flipH(filename);
+            break;
     }
 }
 
-Colour PicLibrary::avg(Colour c) {
-    int red = c.getred();
-    int green = c.getgreen();
-    int blue = c.getblue();
-    Colour avg = Colour((red + blue + green) / 3, (red + blue + green) / 3, (red + blue + green) / 3);
-    return avg;
-}
 
 void PicLibrary::flipV(string filename) {
     auto wrapper = loadedPictures[filename];
     loadedPictures[filename]->mtex.lock();
-    Picture newPic (wrapper->pic.getwidth(), wrapper->pic.getheight());
+    Picture newPic(wrapper->pic.getwidth(), wrapper->pic.getheight());
     for (int i = 0; i < wrapper->pic.getheight(); i++) {
         for (int j = 0; j < wrapper->pic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(wrapper->pic.getpixel(j, ((wrapper->pic.getheight() - 1) - i))));
@@ -191,7 +162,7 @@ void PicLibrary::flipV(string filename) {
 void PicLibrary::flipH(string filename) {
     auto wrapper = loadedPictures[filename];
     wrapper->mtex.lock();
-    Picture newPic (wrapper->pic.getwidth(), wrapper->pic.getheight());
+    Picture newPic(wrapper->pic.getwidth(), wrapper->pic.getheight());
     for (int i = 0; i < wrapper->pic.getheight(); i++) {
         for (int j = 0; j < wrapper->pic.getwidth(); j++) {
             newPic.setpixel(j, i, Colour(wrapper->pic.getpixel(((wrapper->pic.getwidth() - 1) - j), i)));
@@ -203,10 +174,16 @@ void PicLibrary::flipH(string filename) {
 
 
 void PicLibrary::rotate(int angle, string filename) {
-    switch(angle) {
-        case(90): rotate90(filename); break;
-        case(180): rotate180(filename); break;
-        case(270): rotate270(filename); break;
+    switch (angle) {
+        case (90):
+            rotate90(filename);
+            break;
+        case (180):
+            rotate180(filename);
+            break;
+        case (270):
+            rotate270(filename);
+            break;
     }
 }
 
@@ -228,8 +205,8 @@ void PicLibrary::rotate90(string filename) {
     int height = wrapper->pic.getheight();
     Picture newPic = Picture(height, width);
 
-    for(int x = 0; x < width; x++){
-        for(int y = 0; y < height; y++){
+    for (int x = 0; x < width; x++) {
+        for (int y = 0; y < height; y++) {
             newPic.setpixel(y, x, wrapper->pic.getpixel(x, wrapper->pic.getheight() - y - 1));
         }
     }
@@ -242,23 +219,23 @@ void PicLibrary::blur(string filename) {
     auto wrapper = loadedPictures[filename];
     wrapper->mtex.lock();
     Picture newPic(wrapper->pic.getwidth(), wrapper->pic.getheight());
-    for(int i = 0; i < (wrapper->pic.getheight()); i++) {
-        for(int j = 0; j < (wrapper->pic.getwidth()); j++) {
-            if((i != 0) && (j != 0) && (i != (wrapper->pic.getheight() - 1)) && (j != (wrapper->pic.getwidth() - 1))) {
+    for (int i = 0; i < (wrapper->pic.getheight()); i++) {
+        for (int j = 0; j < (wrapper->pic.getwidth()); j++) {
+            if ((i != 0) && (j != 0) && (i != (wrapper->pic.getheight() - 1)) && (j != (wrapper->pic.getwidth() - 1))) {
                 int red = 0;
                 int blue = 0;
                 int green = 0;
-                for(int k = (i - 1); k <= (i + 1); ++k) {
-                    for(int l = (j - 1); l <= (j + 1); ++l) {
+                for (int k = (i - 1); k <= (i + 1); ++k) {
+                    for (int l = (j - 1); l <= (j + 1); ++l) {
                         Colour colour = wrapper->pic.getpixel(l, k);
                         red += colour.getred();
                         green += colour.getgreen();
                         blue += colour.getblue();
-            }
-        }
-        newPic.setpixel(j, i, Colour(red/9, green/9, blue/9));
-    } else {
-        newPic.setpixel(j, i, wrapper->pic.getpixel(j, i));
+                    }
+                }
+                newPic.setpixel(j, i, Colour(red / 9, green / 9, blue / 9));
+            } else {
+                newPic.setpixel(j, i, wrapper->pic.getpixel(j, i));
             }
         }
     }
@@ -266,8 +243,14 @@ void PicLibrary::blur(string filename) {
     wrapper->mtex.unlock();
 }
 
-static void blur_rowHelper(int y, Picture* originalPic, Picture* newPic) {
-    for(int x = 0; x < originalPic->getwidth(); x++) {
+
+// BLUR OPTIMISED IMPLEMENTATIONS
+/*
+ *
+ * ROW-BY-ROW IMPLEMENTATION
+ *
+static void blur_rowHelper(int y, Picture *originalPic, Picture *newPic) {
+    for (int x = 0; x < originalPic->getwidth(); x++) {
         if ((y != 0) && (x != 0) && (y != (originalPic->getheight() - 1)) && (x != (originalPic->getwidth() - 1))) {
             int red = 0;
             int blue = 0;
@@ -287,17 +270,51 @@ static void blur_rowHelper(int y, Picture* originalPic, Picture* newPic) {
     }
 }
 
-//create thread in main that calls all of this and put it in pic threads and let that thread call blur row and then join that one thread in main again
-
 void PicLibrary::blur_row(string filename) {
     auto wrapper = loadedPictures[filename];
     Picture originalPic = wrapper->pic;
     Picture newPic = Picture(originalPic.getwidth(), originalPic.getheight());
     vector<thread> threads;
-    for(int numberOfRows = 0; numberOfRows < originalPic.getheight(); numberOfRows++) {
+    for (int numberOfRows = 0; numberOfRows < originalPic.getheight(); numberOfRows++) {
         threads.push_back(thread(blur_rowHelper, numberOfRows, &originalPic, &newPic));
     }
-        std::for_each(threads.begin(), threads.end(), [](thread &t){t.join();});
-        wrapper->pic.setimage(newPic.getimage());
+    std::for_each(threads.begin(), threads.end(), [](thread &t) { t.join(); });
+    wrapper->pic.setimage(newPic.getimage());
 }
+
+ COLUMN-BY-COLUMN IMPLEMENTATION
+
+static void blur_columnHelper(int x, Picture *originalPic, Picture *newPic) {
+    for (int y = 0; y < originalPic->getheigth(); y++) {
+        if ((x != 0) && (x != 0) && (x != (originalPic->getwidth() - 1)) && (y != (originalPic->getheigth() - 1))) {
+            int red = 0;
+            int blue = 0;
+            int green = 0;
+            for (int i = (x - 1); i <= (i + 1); ++i) {
+                for (int j = (y - 1); j <= (y + 1); ++j) {
+                    Colour colour = originalPic->getpixel(j, i);
+                    red += colour.getred();
+                    green += colour.getgreen();
+                    blue += colour.getblue();
+                }
+            }
+            newPic->setpixel(x, y, Colour(red / 9, green / 9, blue / 9));
+        } else {
+            newPic->setpixel(x, y, originalPic->getpixel(x, y));
+        }
+    }
+}
+
+void PicLibrary::blur_column(string filename) {
+    auto wrapper = loadedPictures[filename];
+    Picture originalPic = wrapper->pic;
+    Picture newPic = Picture(originalPic.getwidth(), originalPic.getheight());
+    vector<thread> threads;
+    for (int numberOfColumns = 0; numberOfColumns < originalPic.getwidth(); numberOfRows++) {
+        threads.push_back(thread(blur_rowHelper, numberOfColumns, &originalPic, &newPic));
+    }
+    std::for_each(threads.begin(), threads.end(), [](thread &t) { t.join(); });
+    wrapper->pic.setimage(newPic.getimage());
+}
+ */
 

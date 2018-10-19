@@ -8,9 +8,9 @@
 using namespace std;
 
 int main(int argc, char **argv) {
+
     PicLibrary lib;
 
-    //loads all needed pictures
     for (int i = 1; argv[i] != NULL; ++i) {
         size_t start = string(argv[i]).rfind("/") + 1;
         char *name;
@@ -28,6 +28,8 @@ int main(int argc, char **argv) {
     int angle;
     char plane;
 
+
+    //command interpreter
     while (cin >> cmd && cmd != "exit") {
 
         if (cmd == "liststore") {
@@ -44,7 +46,7 @@ int main(int argc, char **argv) {
         }
         if (cmd == "invert") {
             cin >> name;
-            if(lib.checkMapforFile(name)) {
+            if (lib.checkMapforFile(name)) {
                 lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::invert, &lib, name));
             }
         }
@@ -60,33 +62,36 @@ int main(int argc, char **argv) {
         }
         if (cmd == "rotate") {
             cin >> angle >> name;
-            if(lib.checkMapforFile(name)) {
+            if (lib.checkMapforFile(name)) {
                 lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::rotate, &lib, angle, name));
             }
         }
-        if (cmd == "grayscale"){
+        if (cmd == "grayscale") {
             cin >> name;
-            if(lib.checkMapforFile(name)) {
+            if (lib.checkMapforFile(name)) {
                 lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::grayscale, &lib, name));
             }
         }
         if (cmd == "flip") {
             cin >> plane >> name;
-            if(lib.checkMapforFile(name)) {
+            if (lib.checkMapforFile(name)) {
                 lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::flipVH, &lib, plane, name));
             }
         }
         if (cmd == "blur") {
             cin >> name;
-            if(lib.checkMapforFile(name)) {
-               // lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur, &lib, name));
-                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur_row, &lib, name));
+            if (lib.checkMapforFile(name)) {
+                lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur, &lib, name));
+
+                /*comment these lines out if testing the other blur implementations that are optimised*/
+
+                //lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur_row, &lib, name));
+                //lib.getWrapper(name)->threads.push_back(thread(&PicLibrary::blur_column, &lib, name));
             }
         }
-        if(cin.peek() == EOF) {
+        if (cin.peek() == EOF) {
             break;
-        }
-        else {
+        } else {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     }

@@ -1,4 +1,3 @@
-
 #include "PicWrapper.hpp"
 
 PicWrapper::PicWrapper(Picture *pic) {
