@@ -124,7 +124,7 @@ void PicLibrary::grayscale(string filename) {
             Colour temp = wrapper->pic.getpixel(i, j);
             wrapper->pic.setpixel(i, j, Colour(average(temp.getblue(), temp.getred(), temp.getgreen()),
                                                average(temp.getblue(), temp.getred(), temp.getgreen()),
-                                               average(temp.getblue(), temp.getred(), temp.getgreen())
+                                               average(temp.getblue(), temp.getred(), temp.getgreen())));
         }
     }
     wrapper->mtex.unlock();

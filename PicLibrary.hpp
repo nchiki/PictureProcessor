@@ -71,7 +71,7 @@ public:
 
     void blur_columnHelper(int y, Picture *originalPic, Picture *newPic);
 
-    void PicLibrary::pixel_blur(string filename);
+    void pixel_blur(string filename);
     };
 
 #endif
